@@ -1,0 +1,47 @@
+server:
+  port: 8995 #启动端口
+spring:
+  profiles:
+    active: ${ACTIVE:prod}
+  application:
+    name: java-learn
+  jackson:
+    #        date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+  datasource:
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  http:
+    multipart:
+      maxFileSize: "100MB"
+      maxRequestSize: "100MB"
+mybatis:
+  mapper-locations: "classpath*:mapper/**/*.xml"
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 配置swagger 注意空格
+swagger:
+  enabled: true
+  base-package: com.mycode.javalearn.controller
+  title: java-learn
+  version: 1.0.0.SNAPSHOT
+  description: java-learn
