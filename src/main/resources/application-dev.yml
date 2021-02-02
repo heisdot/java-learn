@@ -7,6 +7,6 @@ spring:
       max-active: 20
   datasource:
     name: dev
-    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/javalearn?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/javalearn?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF8&useSSL=false
     username: root
     password: 123456
